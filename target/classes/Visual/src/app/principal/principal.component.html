@@ -1,22 +1,24 @@
 <!-- principal.component.html -->
 <header>
-  <button>Inicio</button>
+  <button (click)="IraInicio()">Inicio</button>
   <button (click)="toggleDropdown('id')" [id]="'filterByIdButton'">Filtrar por Id</button>
   <button (click)="toggleDropdown('nombre')" [id]="'filterByNameButton'">Filtrar por Nombre</button>
   <div id="des_filtra_id" [class.show]="showDropdown && filterType === 'id'">
     <form>
       <input placeholder="Introduce el id" type="number" [(ngModel)]="filtroIdValue"
-             [ngModelOptions]="{standalone: true}" [id]="'filtroIdInput'">
+             [ngModelOptions]="{standalone: true}" [id]="'filtroIdInput'" (keyup.enter)="filtrarPorId()">
       <button type="button" (click)="filtrarPorId()">Filtrar</button>
     </form>
   </div>
+
   <div id="des_filtra_nombre" [class.show]="showDropdown && filterType === 'nombre'">
     <form>
       <input placeholder="Introduce el nombre a buscar" type="text" [(ngModel)]="filtroNombreValue"
-             [ngModelOptions]="{standalone: true}" [id]="'filtroNombreInput'">
+             [ngModelOptions]="{standalone: true}" [id]="'filtroNombreInput'" (keyup.enter)="filtrarPorNombre()">
       <button type="button" (click)="filtrarPorNombre()">Filtrar</button>
     </form>
   </div>
+
   <button (click)="irACrear()">Crear</button>
 </header>
 <app-error-dialog *ngIf="showErrorDialog" [message]="errorMessage" (close)="closeErrorDialog()"></app-error-dialog>

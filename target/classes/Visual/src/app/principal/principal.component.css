@@ -10,7 +10,7 @@ header {
   align-items: center;
   font-family: "Agency FB", "serif";
   font-weight: bolder;
-  background: rgba(35, 122, 203, 0.8);
+  background: rgba(35, 122, 203, 1);
   color: white;
   position: fixed;
   border-radius: 200px;
@@ -43,11 +43,6 @@ header button:hover {
   display: none;
   position: absolute;
   top: 107%;
-  left: {
-{
-  :dropdownLeft:
-}
-};
   background: #0e0e0e;
   border: 1px solid #ccc;
   width: 40%;
@@ -89,11 +84,6 @@ header form {
   display: none;
   position: absolute;
   top: 107%;
-  left: {
-{
-  :dropdownLeft:
-}
-};
   background: #0e0e0e;
   border: 1px solid #ccc;
   width: 40%;
@@ -178,10 +168,11 @@ header form {
   color: white;
 }
 
-#tabla_principal .mod{
+#tabla_principal .mod {
   display: block;
 }
-#tabla_principal .mod input,select{
+
+#tabla_principal .mod input, select {
   display: block;
   height: 100%;
   font-size: 20px;

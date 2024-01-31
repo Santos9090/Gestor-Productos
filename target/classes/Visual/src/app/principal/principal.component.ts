@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ProductosService} from '../../service/ProductosService';
 import {Router} from "@angular/router";
+import {DOCUMENT} from "@angular/common";
 
 @Component({
   selector: 'app-principal',
@@ -16,7 +17,7 @@ export class PrincipalComponent implements OnInit {
   showErrorDialog: boolean = false;
   errorMessage: string = '';
 
-  constructor(private productosService: ProductosService, private router: Router) {
+  constructor(private productosService: ProductosService, private router: Router,@Inject(DOCUMENT) private document: Document) {
   }
 
   ngOnInit(): void {
@@ -59,6 +60,13 @@ export class PrincipalComponent implements OnInit {
       }
     } else {
       this.showError("Ha habido un error eliminando");
+    }
+  }
+
+  IraInicio() {
+    const element = this.document.documentElement;
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }
   }
 
@@ -118,7 +126,7 @@ export class PrincipalComponent implements OnInit {
         ((seleccion === "Nombre" || seleccion === "Categoria") && nuevoValor !== null && nuevoValor !== undefined && nuevoValor.trim() !== "")
       ) {
         await this.productosService.modifyProduct(id, seleccion, nuevoValor).toPromise();
-
+        this.loadProducts();
       } else {
         console.error(`Error al modificar el producto ${id}. Verifica los valores ingresados.`);
         this.showError('Error al modificar el producto. Verifica los valores ingresados.');

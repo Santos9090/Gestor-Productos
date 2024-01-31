@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000; /* Ajusta este valor según sea necesario para asegurarte de que está por encima de otros elementos */
 }
 
 .dialog {
@@ -18,15 +19,16 @@
   color: #0800ff;
   font-size: 30px;
   font-family: "Arial Black", fantasy;
+  z-index: 1001; /* Un valor mayor al z-index del overlay para que esté por encima */
 }
 
-.dialog button{
+.dialog button {
   background-color: white;
   width: 100%;
-  font-size:20px;
+  font-size: 20px;
   transition: background-color ease-in 0.2s;
 }
 
-.dialog button:hover{
+.dialog button:hover {
   background-color: #c5c5c5;
 }

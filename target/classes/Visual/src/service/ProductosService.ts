@@ -55,7 +55,6 @@ export class ProductosService {
       );
   }
 
-
   deleteProduct(id: number): Observable<void> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete<void>(url)

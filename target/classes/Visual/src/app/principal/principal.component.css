@@ -1,0 +1,189 @@
+/* Estilo para centrar la tabla y mejorar la apariencia */
+
+/* app.component.css */
+header {
+  margin-top: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Agency FB", "serif";
+  font-weight: bolder;
+  background: rgba(35, 122, 203, 0.8);
+  color: white;
+  position: fixed;
+  border-radius: 200px;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  border-bottom: 3px solid #03323b; /* Borde azul en la parte inferior */
+}
+
+
+header button {
+  font-size: 20px;
+  background-color: transparent;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.9s;
+  font-weight: bolder;
+}
+
+
+header button:hover {
+  background: rgb(255, 255, 255);
+}
+
+
+#des_filtra_id {
+  display: none;
+  position: absolute;
+  top: 107%;
+  left: {
+{
+  :dropdownLeft:
+}
+};
+  background: #0e0e0e;
+  border: 1px solid #ccc;
+  width: 40%;
+  justify-content: space-between;
+  padding: 1% 0px 1% 1%;
+  z-index: 1001; /* Asegura que esté por encima del header */
+  background: rgba(35, 122, 203, 0.8);
+  color: white;
+  border-radius: 200px;
+  border-bottom: 3px solid #03323b; /* Borde azul en la parte inferior */
+}
+
+#des_filtra_id.show {
+  display: flex;
+}
+
+header form {
+  width: 100%;
+}
+
+#des_filtra_id input {
+  margin-right: 10px;
+  font-size: 20px;
+  width: 80%;
+  background: rgba(35, 122, 203, 0);
+}
+
+#des_filtra_id button {
+  background-color: #03323b;
+  color: #03323b;
+  width: 10%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+#des_filtra_nombre {
+  display: none;
+  position: absolute;
+  top: 107%;
+  left: {
+{
+  :dropdownLeft:
+}
+};
+  background: #0e0e0e;
+  border: 1px solid #ccc;
+  width: 40%;
+  justify-content: space-between;
+  padding: 1% 0px 1% 1%;
+  z-index: 1001;
+  background: rgba(35, 122, 203, 0.8);
+  color: white;
+  border-radius: 200px;
+  border-bottom: 3px solid #03323b;
+}
+
+#des_filtra_nombre.show {
+  display: flex;
+}
+
+#des_filtra_nombre input {
+  margin-right: 10px;
+  font-size: 20px;
+  width: 80%;
+  background: rgba(35, 122, 203, 0);
+}
+
+#des_filtra_nombre button {
+  background-color: #03323b;
+  color: #03323b;
+  width: 10%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+#cant_res {
+  text-align: center;
+  margin-top: 10%;
+  font-size: 40px;
+  background: black;
+  color: white;
+  font-family: "Arial Black", "sans-serif";
+}
+
+#tabla_principal {
+  border-collapse: collapse;
+  background-color: white;
+  width: 80%;
+  margin: 1% auto 0; /* Centra la tabla y ajusta el espacio superior */
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.6); /* Sombra más pronunciada */
+  font-family: "Arial Black", serif;
+}
+
+
+#tabla_principal tr {
+  border-bottom: 1px solid #ddd; /* Línea divisoria entre filas */
+}
+
+#tabla_principal th, #tabla_principal td {
+  padding: 12px;
+  text-align: left;
+}
+
+#tabla_principal th {
+  background-color: #3498db;
+  color: white;
+}
+
+#tabla_principal button {
+  background-color: transparent;
+  color: red;
+  font-family: "Arial Black", sans-serif;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#tabla_principal button:hover {
+  color: #c0392b;
+}
+
+#tabla_principal tr:first-child {
+  background-color: #000000;
+  color: white;
+}
+
+#tabla_principal .mod{
+  display: block;
+}
+#tabla_principal .mod input,select{
+  display: block;
+  height: 100%;
+  font-size: 20px;
+}
+

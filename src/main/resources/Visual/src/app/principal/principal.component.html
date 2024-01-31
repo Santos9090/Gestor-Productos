@@ -1,0 +1,55 @@
+<!-- principal.component.html -->
+<header>
+  <button (click)="IraInicio()">Inicio</button>
+  <button (click)="toggleDropdown('id')" [id]="'filterByIdButton'">Filtrar por Id</button>
+  <button (click)="toggleDropdown('nombre')" [id]="'filterByNameButton'">Filtrar por Nombre</button>
+  <div id="des_filtra_id" [class.show]="showDropdown && filterType === 'id'">
+    <form>
+      <input placeholder="Introduce el id" type="number" [(ngModel)]="filtroIdValue"
+             [ngModelOptions]="{standalone: true}" [id]="'filtroIdInput'" (keyup.enter)="filtrarPorId()">
+      <button type="button" (click)="filtrarPorId()">Filtrar</button>
+    </form>
+  </div>
+
+  <div id="des_filtra_nombre" [class.show]="showDropdown && filterType === 'nombre'">
+    <form>
+      <input placeholder="Introduce el nombre a buscar" type="text" [(ngModel)]="filtroNombreValue"
+             [ngModelOptions]="{standalone: true}" [id]="'filtroNombreInput'" (keyup.enter)="filtrarPorNombre()">
+      <button type="button" (click)="filtrarPorNombre()">Filtrar</button>
+    </form>
+  </div>
+
+  <button (click)="irACrear()">Crear</button>
+</header>
+<app-error-dialog *ngIf="showErrorDialog" [message]="errorMessage" (close)="closeErrorDialog()"></app-error-dialog>
+<h2 id="cant_res">CANTIDAD DE RESULTADOS: {{ productos.length }}</h2>
+<table id="tabla_principal">
+  <tr>
+    <td>Id</td>
+    <td>Nombre</td>
+    <td>Precio</td>
+    <td>Cantidad</td>
+    <td>Categoria</td>
+    <td>Modificar</td>
+    <td>Eliminar</td>
+  </tr>
+  <tr *ngFor="let producto of productos">
+    <td>{{ producto.id }}</td>
+    <td>{{ producto.nombre }}</td>
+    <td>{{ producto.precio }}</td>
+    <td>{{ producto.cantidad }}</td>
+    <td>{{ producto.categoria }}</td>
+    <td class="mod">
+      <form>
+        <select id="opciones" [(ngModel)]="seleccionPorProducto[producto.id]" name="opciones">
+          <option *ngFor="let opcion of opciones" [value]="opcion">{{ opcion }}</option>
+        </select>
+        <input type="text" [(ngModel)]="nuevoValorPorProducto[producto.id]" name="nuevoValor" placeholder="Nuevo Valor">
+        <button type="button" (click)="modifyProducto (producto.id)">Modificar</button>
+      </form>
+    </td>
+    <td>
+      <button (click)="eliminarProducto(producto.id)">Eliminar</button>
+    </td>
+  </tr>
+</table>

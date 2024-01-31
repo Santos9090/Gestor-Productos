@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <app-error-dialog *ngIf="showErrorDialog" [message]="errorMessage" (close)="closeErrorDialog()"></app-error-dialog>
+  <div class="login-box">
+    <form action="">
+      <u routerLink="/">Salir</u>
+      <h2>Crear Producto</h2>
+      <div class="input-box">
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="nuevoProducto.nombre" required>
+        <label for="nombre">Nombre:</label>
+      </div>
+      <div class="input-box">
+        <input type="text" pattern="\d" id="precio" name="precio"  [(ngModel)]="nuevoProducto.precio" required>
+        <label for="precio">Precio:</label>
+      </div>
+      <div class="input-box">
+        <input type="text" pattern="\d*" id="cantidad" name="cantidad" [(ngModel)]="nuevoProducto.cantidad" required>
+        <label for="cantidad">Cantidad:</label>
+      </div>
+      <div class="input-box">
+        <input type="text" id="categoria" name="categoria" [(ngModel)]="nuevoProducto.categoria" required>
+        <label for="categoria">Categoría:</label>
+      </div>
+      <button (click)="agregarProducto()">Crear</button>
+    </form>
+  </div>
+
+</div>

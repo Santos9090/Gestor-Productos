@@ -20,14 +20,13 @@ import {FormsModule} from "@angular/forms";
 })
 export class CrearComponent {
   nuevoProducto: ProductosEntity = new ProductosEntity('', 1, 1, ''); // Instancia del nuevo producto
-
-  constructor(
-    private tuServicioExistente: ProductosService,private router: Router
-  ) {
-  }
-
   showErrorDialog: boolean = false;
   errorMessage: string = '';
+
+  constructor(
+    private tuServicioExistente: ProductosService, private router: Router
+  ) {
+  }
 
   agregarProducto() {
     // Verifica que los campos necesarios estén llenos

@@ -1,6 +1,4 @@
-import {Component, ElementRef, EventEmitter, input, Output, ViewChild} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {PrincipalComponent} from "./principal/principal.component";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',

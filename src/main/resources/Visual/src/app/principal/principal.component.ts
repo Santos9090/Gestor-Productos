@@ -16,14 +16,16 @@ export class PrincipalComponent implements OnInit {
   filtroNombreValue: string = '';
   showErrorDialog: boolean = false;
   errorMessage: string = '';
+  opciones: string[] = ['Nombre', 'Precio', 'Cantidad', 'Categoria'];
+  seleccionPorProducto: any = {}; // Objeto para almacenar selecciones por producto
+  nuevoValorPorProducto: any = {}; // Objeto para almacenar el nuevo valor por producto
 
-  constructor(private productosService: ProductosService, private router: Router,@Inject(DOCUMENT) private document: Document) {
+  constructor(private productosService: ProductosService, private router: Router, @Inject(DOCUMENT) private document: Document) {
   }
 
   ngOnInit(): void {
     this.loadProducts();
   }
-
 
   toggleDropdown(type: string): void {
     if (!this.showDropdown) {
@@ -66,10 +68,9 @@ export class PrincipalComponent implements OnInit {
   IraInicio() {
     const element = this.document.documentElement;
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+      element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
     }
   }
-
 
   showError(message: string): void {
     this.errorMessage = message;
@@ -111,11 +112,6 @@ export class PrincipalComponent implements OnInit {
   closeErrorDialog(): void {
     this.showErrorDialog = false;
   }
-
-  opciones: string[] = ['Nombre', 'Precio', 'Cantidad', 'Categoria'];
-  seleccionPorProducto: any = {}; // Objeto para almacenar selecciones por producto
-  nuevoValorPorProducto: any = {}; // Objeto para almacenar el nuevo valor por producto
-
 
   async modifyProducto(id: number) {
     try {

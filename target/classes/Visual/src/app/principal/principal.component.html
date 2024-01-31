@@ -3,25 +3,25 @@
   <button (click)="IraInicio()">Inicio</button>
   <button (click)="toggleDropdown('id')" [id]="'filterByIdButton'">Filtrar por Id</button>
   <button (click)="toggleDropdown('nombre')" [id]="'filterByNameButton'">Filtrar por Nombre</button>
-  <div id="des_filtra_id" [class.show]="showDropdown && filterType === 'id'">
+  <div [class.show]="showDropdown && filterType === 'id'" id="des_filtra_id">
     <form>
-      <input placeholder="Introduce el id" type="number" [(ngModel)]="filtroIdValue"
-             [ngModelOptions]="{standalone: true}" [id]="'filtroIdInput'" (keyup.enter)="filtrarPorId()">
-      <button type="button" (click)="filtrarPorId()">Filtrar</button>
+      <input (keyup.enter)="filtrarPorId()" [(ngModel)]="filtroIdValue" [id]="'filtroIdInput'"
+             [ngModelOptions]="{standalone: true}" placeholder="Introduce el id" type="number">
+      <button (click)="filtrarPorId()" type="button">Filtrar</button>
     </form>
   </div>
 
-  <div id="des_filtra_nombre" [class.show]="showDropdown && filterType === 'nombre'">
+  <div [class.show]="showDropdown && filterType === 'nombre'" id="des_filtra_nombre">
     <form>
-      <input placeholder="Introduce el nombre a buscar" type="text" [(ngModel)]="filtroNombreValue"
-             [ngModelOptions]="{standalone: true}" [id]="'filtroNombreInput'" (keyup.enter)="filtrarPorNombre()">
-      <button type="button" (click)="filtrarPorNombre()">Filtrar</button>
+      <input (keyup.enter)="filtrarPorNombre()" [(ngModel)]="filtroNombreValue" [id]="'filtroNombreInput'"
+             [ngModelOptions]="{standalone: true}" placeholder="Introduce el nombre a buscar" type="text">
+      <button (click)="filtrarPorNombre()" type="button">Filtrar</button>
     </form>
   </div>
 
   <button (click)="irACrear()">Crear</button>
 </header>
-<app-error-dialog *ngIf="showErrorDialog" [message]="errorMessage" (close)="closeErrorDialog()"></app-error-dialog>
+<app-error-dialog (close)="closeErrorDialog()" *ngIf="showErrorDialog" [message]="errorMessage"></app-error-dialog>
 <h2 id="cant_res">CANTIDAD DE RESULTADOS: {{ productos.length }}</h2>
 <table id="tabla_principal">
   <tr>
@@ -41,11 +41,11 @@
     <td>{{ producto.categoria }}</td>
     <td class="mod">
       <form>
-        <select id="opciones" [(ngModel)]="seleccionPorProducto[producto.id]" name="opciones">
+        <select [(ngModel)]="seleccionPorProducto[producto.id]" id="opciones" name="opciones">
           <option *ngFor="let opcion of opciones" [value]="opcion">{{ opcion }}</option>
         </select>
-        <input type="text" [(ngModel)]="nuevoValorPorProducto[producto.id]" name="nuevoValor" placeholder="Nuevo Valor">
-        <button type="button" (click)="modifyProducto (producto.id)">Modificar</button>
+        <input [(ngModel)]="nuevoValorPorProducto[producto.id]" name="nuevoValor" placeholder="Nuevo Valor" type="text">
+        <button (click)="modifyProducto (producto.id)" type="button">Modificar</button>
       </form>
     </td>
     <td>

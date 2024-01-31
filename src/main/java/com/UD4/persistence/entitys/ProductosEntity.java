@@ -28,6 +28,13 @@ public class ProductosEntity {
 
     }
 
+    public ProductosEntity(String nombre, int precio, int cantidad, String categoria) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+        this.categoria = categoria;
+    }
+
     public int getId() {
         return id;
     }
@@ -59,7 +66,6 @@ public class ProductosEntity {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
-
 
     public String getCategoria() {
 
@@ -94,14 +100,6 @@ public class ProductosEntity {
         result = 31 * result + cantidad;
         result = 31 * result + Objects.hashCode(categoria);
         return result;
-    }
-
-
-    public ProductosEntity(String nombre, int precio, int cantidad, String categoria) {
-        this.nombre = nombre;
-        this.precio = precio;
-        this.cantidad = cantidad;
-        this.categoria = categoria;
     }
 
     @Override
